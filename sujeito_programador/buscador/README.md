@@ -66,6 +66,12 @@ Para ter animação
 
 O mesmo identificador da Animação deve constar no atributo onde a animação será apresentada. Neste caso na Classe titulo. Acrescentado do tempo da ação, no nosso caso, 2s.
 
+api
+![image](https://user-images.githubusercontent.com/1613816/146113117-b5bcb676-7c80-4f99-b587-2057856f602c.png)
+
+
+resposa do console
+
 ![image](https://user-images.githubusercontent.com/1613816/146112968-9fd84aa3-8ee0-4cae-8bc6-c52bf4f37058.png)
 
 
