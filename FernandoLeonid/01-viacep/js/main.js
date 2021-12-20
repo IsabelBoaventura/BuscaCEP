@@ -1,43 +1,35 @@
-'use strict';
+//'use strict';
+//javascript em modo  rigoroso;
 
-const limparFormulario = (endereco) =>{
-    document.getElementById('endereco').value = '';
-    document.getElementById('bairro').value = '';
-    document.getElementById('cidade').value = '';
-    document.getElementById('estado').value = '';
+
+const preencherFormulario = ( endereco ) => {
+    document.getElementById("endereco").value = endereco.logradouro;
 }
 
-
-const preencherFormulario = (endereco) =>{
-    document.getElementById('endereco').value = endereco.logradouro;
-    document.getElementById('bairro').value = endereco.bairro;
-    document.getElementById('cidade').value = endereco.localidade;
-    document.getElementById('estado').value = endereco.uf;
-}
-
-
-const eNumero = (numero) => /^[0-9]+$/.test(numero);
-
-const cepValido = (cep) => cep.length == 8 && eNumero(cep); 
-
-const pesquisarCep = async() => {
-    limparFormulario();
-    
-    const cep = document.getElementById('cep').value.replace("-","");
+const pesquisarCep = async () => {
+   // alert( ' ola mundo da funcao pesquisarCep');
+    const cep = document.getElementById('cep').value;
+    console.log('CEP Digitado '+ cep);    
     const url = `https://viacep.com.br/ws/${cep}/json/`;
-    if (cepValido(cep)){
-        const dados = await fetch(url);
-        const endereco = await dados.json();
-        if (endereco.hasOwnProperty('erro')){
-            document.getElementById('endereco').value = 'CEP não encontrado!';
-        }else {
-            preencherFormulario(endereco);
-        }
-    }else{
-        document.getElementById('endereco').value = 'CEP incorreto!';
-    }
-     
+    //fetch(url)
+    //    .then(response => response.json())
+      //  .then(console.log)
+        ///.catch();
+    const dados  = await fetch(url);
+    const endereco = await dados.json();
+    console.log( endereco );
+    preencherFormulario( endereco );
+
+
+    
 }
 
 document.getElementById('cep')
-        .addEventListener('focusout',pesquisarCep);
+        .addEventListener('focusout', pesquisarCep);
+//funcao passada como parametro
+
+//var c =  document.getElementById('cep');
+//alert(' linha 11' + c.value);//
+
+
+////@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
