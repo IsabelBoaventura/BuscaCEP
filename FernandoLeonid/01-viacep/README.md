@@ -37,8 +37,31 @@ Variavel 'Endereco' pega a resposta da variavel 'dados' com o método json `dado
 Agora que já trouxemos o resultado da URL e aprensentamos no Console. Agora vamos preencher os dados . 
 
 
+## Tratamento de erro
+
+Como saber se a informação recebida pelo Json, esta correta?
+Quando há erro, o Json retorna com o atributo `erro: true`. 
+Tem de fazer o código verificar se existe ou não este atributo. 
+Verifica se a resposta do Json tem determinada properidade: `endereco.hasOwnProperty('erro')`.
+
+
+## Validação
+
+Apenas mandar para a função fetch, se o CEP for constiuido de apenas números e contendo  apenas 8 dígitos. 
+
+Validar se todos os caracteres digitados são números. 
+
+## Limpar Formulário
+Após sair do campo do CEP, mandar o comando de limpar os campos, e depois fazer a pesquisa do CEP cadastrado. 
+
+
+## Finalização
+
 ![image](https://user-images.githubusercontent.com/1613816/146847441-4b1013d9-f629-466d-adc4-62e5080ba593.png)
 
+### Funcionando
+
+20-12-2021
 
 
 
