@@ -37,4 +37,8 @@ Variavel 'Endereco' pega a resposta da variavel 'dados' com o método json `dado
 Agora que já trouxemos o resultado da URL e aprensentamos no Console. Agora vamos preencher os dados . 
 
 
+![image](https://user-images.githubusercontent.com/1613816/146847441-4b1013d9-f629-466d-adc4-62e5080ba593.png)
+
+
+
 
