@@ -1,9 +1,12 @@
 <?php
 
-require '../../vendor/autoload.php';
+//require '../../vendor/autoload.php';
 
 //incluindo a DEPENDECIA
 use \App\WebService\ViaCEP;
+
+
+echo '<br> Estou na pagiana cep ';
 
 
 

@@ -14,6 +14,40 @@ CREATE TABLE regiao(
 	situacao varchar(1)
 );
 
+CREATE TABLE regiao(
+	id int(11) primary key  auto_increment,
+	sigla varchar(2),
+	nome  varchar(50),
+	situacao varchar(1)
+);
+
+
+------------------------------------
+
+https://servicodados.ibge.gov.br/api/v1/localidades/estados
+
+CREATE TABLE estados(
+	id int(11) primary key auto_increment,
+	sigla varchar(2) unique key,
+	nome  varchar(50),
+	id_regiao int(11),
+	situacao varchar(1)
+);
+
+
+
+
+id: 11,
+sigla: "RO",
+nome: "Rondônia",
+regiao: {
+id: 1,
+sigla: "N",
+nome: "Norte"
+}
+
+
+
 
 INSERT INTO produtos ( descricao, preco, saldo, validade, situacao) values 
 ('cadeira',   51.25, 2, '2028-09-24', 'A'),
