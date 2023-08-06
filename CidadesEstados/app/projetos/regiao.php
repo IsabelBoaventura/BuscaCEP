@@ -3,57 +3,11 @@
 //require '../../vendor/autoload.php';
 //require  '../banco/conexao.php';
 //incluindo a DEPENDECIA
-use \App\WebService\EstadosCidades;
-
-
-$buscaRegioes  = EstadosCidades::buscaRegioes();
-
-echo '<br><br><br>';
-//var_dump( $buscaRegioes );
-$situacao= 'A';
-
-
-foreach( $buscaRegioes  as $key => $value ){
-    $sql = 'INSERT INTO regiao ( id, sigla, nome, situacao   ) VALUES (? ,? ,?,? )';
-
-    $stmt = $conn->prepare( $sql );
-    $stmt->bindValue(1, $value['id'] );
-    $stmt->bindValue(2, $value['sigla']);
-    $stmt->bindValue(3, $value['nome'] );
-    $stmt->bindValue(4, $situacao);
-    
-    $stmt->execute();
-    
-}
-
-
-
-
-
 //busca da regiao
 
 $sql = 'SELECT * FROM regiao ';
 $res = $conn->prepare( $sql );
 $res->execute();
-//$regioes = $res->fetchAll(PDO::FETCH_CLASS);
-
-// echo '<br> <br>';
-// //var_dump($regioes  );
-// echo '<br> <br>';
-
-
-
-
-
-
-
-// foreach ($conn->query($sql) as $row) {
-//     print $row['id'] . "\t";
-//     print $row['nome'] . "\t";
-//     print $row['sigla'] . "\n";
-// }
-
-
 
 ?>
 
@@ -84,9 +38,9 @@ $res->execute();
                 foreach ($conn->query($sql) as $row) {
                     echo '
                     <tr>
-                        <td>'. $row['id'].'</td>
-                        <td>'.$row['nome'].'</td>
+                        <td>'. $row['id'].'</td>                      
                         <td>'.$row['sigla'].'</td>
+                        <td>'.$row['nome'].'</td>
                     </tr>
                     ';
                 }

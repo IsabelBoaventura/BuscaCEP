@@ -122,10 +122,8 @@ class EstadosCidades{
         }
         
 
-         // 
-         echo '<br>';
-        // 
-        print_r(  $response );
+         // echo '<br>';
+        //  print_r(  $response );
 
 
 
@@ -136,9 +134,9 @@ class EstadosCidades{
         $array = json_decode( $response, true );
 
          // 
-         echo '<br>';
+          echo '<br>';
         // 
-        print_r(  $array );
+         print_r(  $array );
 
         //retornar com validacao 
        //return  isset( $array['id']) ? $array: null;

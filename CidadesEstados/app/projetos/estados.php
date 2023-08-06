@@ -1,71 +1,15 @@
 <?php 
 
-
-echo ' estou nos estados <br> ';
-
-
-//require '../../vendor/autoload.php';
-//require  '../banco/conexao.php';
-//incluindo a DEPENDECIA
-use \App\WebService\EstadosCidades;
-
-
-$buscaUF  = EstadosCidades::buscaEstados();
-
-echo '<br><br><br>';
-//var_dump( $buscaRegioes );
-$situacao= 'A';
-$id_regiao = '1';
-
-
-foreach( $buscaUF  as $key => $value ){
-    $sql = 'INSERT INTO estados  ( id, sigla, nome, situacao, id_regiao  ) VALUES (? ,? ,?, ?, ? )';
-
-    $stmt = $conn->prepare( $sql );
-    $stmt->bindValue(1, $value['id'] );
-    $stmt->bindValue(2, $value['sigla']);
-    $stmt->bindValue(3, $value['nome'] );
-    $stmt->bindValue(4, $situacao);
-    $stmt->bindValue(5, $id_regiao );
-    
-    $stmt->execute();
-    
-}
-
-
-
-
-
-//busca da regiao
-
+//busca dos estados
 $sql = 'SELECT * FROM estados ';
 $res = $conn->prepare( $sql );
 $res->execute();
-//$regioes = $res->fetchAll(PDO::FETCH_CLASS);
-
-// echo '<br> <br>';
-// //var_dump($regioes  );
-// echo '<br> <br>';
-
-
-
-
-
-
-
-// foreach ($conn->query($sql) as $row) {
-//     print $row['id'] . "\t";
-//     print $row['nome'] . "\t";
-//     print $row['sigla'] . "\n";
-// }
-
-
 
 ?>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -94,7 +38,19 @@ $res->execute();
                         <td>'. $row['id'].'</td>
                         <td>'.$row['nome'].'</td>
                         <td>'.$row['sigla'].'</td>
-                        <td>'.$row['id_regiao'].'</td>
+                    ';
+
+                    //busca do nome da Região deste estado
+                    $sqlRegiao = 'SELECT nome FROM regiao WHERE id = "'.$row['id_regiao'].'" ';
+                    $resRegiao = $conn->prepare( $sqlRegiao );
+                    $resRegiao->execute();
+
+                    $result = 
+                    $resRegiao->fetchAll(PDO::FETCH_ASSOC);
+                    //echo $result[0]['nome'];
+
+                    echo '
+                        <td>'.$result[0]['nome'].'</td>
                     </tr>
                     ';
                 }

@@ -19,9 +19,6 @@ require __DIR__.'/banco/conexao.php';
 			<li class="nav-item active" role="presentation">
 				<button class="nav-link active rounded-5" id="home-tab2" data-bs-toggle="tab" type="button" role="tab" aria-controls="home-tab-pane"  aria-selected="true" data-bs-target="#v-pills-home" >Home</button>
 			</li>
-
-
-
 			<li class="nav-item" role="presentation">
 				<button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab" data-bs-target="#v-pills-profile" aria-selected="false">Profile</button>
 			</li>
@@ -33,6 +30,9 @@ require __DIR__.'/banco/conexao.php';
 			</li>
             <li class="nav-item" role="presentation">
 				<button class="nav-link rounded-5" id="uf-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false" data-bs-target="#v-pills-uf" aria-controls="v-pills-uf" >Estados </button>
+			</li>
+            <li class="nav-item" role="presentation">
+				<button class="nav-link rounded-5" id="cidade-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false" data-bs-target="#v-pills-cidade" aria-controls="v-pills-cidade" > Cidades </button>
 			</li>
 		</ul>
 	</nav>
