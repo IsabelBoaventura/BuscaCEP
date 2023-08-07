@@ -33,8 +33,8 @@ class EstadosCidades{
 
         //RESPONSE
         $response = curl_exec($curl);
-        // echo '<br>';
-        // print_r(  $response );
+        //echo '<br>';
+        //  print_r(  $response );
         if ($response === false) {
             echo 'Erro cURL: ' . curl_error($curl);
         }
@@ -133,10 +133,8 @@ class EstadosCidades{
         //forcar o resultado em array
         $array = json_decode( $response, true );
 
-         // 
-          echo '<br>';
-        // 
-         print_r(  $array );
+         //  echo '<br>';
+        //  print_r(  $array );
 
         //retornar com validacao 
        //return  isset( $array['id']) ? $array: null;

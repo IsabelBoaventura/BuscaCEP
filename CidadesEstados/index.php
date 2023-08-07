@@ -46,6 +46,7 @@ require __DIR__.'/banco/conexao.php';
             <div class="tab-pane fade" id="v-pills-regiao" role="tabpanel" aria-labelledby="v-pills-regiao-tab"> <?php include_once ( 'app\projetos\regiao.php' );   ?>  </div>
             <div class="tab-pane fade" id="v-pills-cep" role="tabpanel" aria-labelledby="v-pills-cep-tab"> <?php  include_once ( 'app\projetos\cep.php' );  ?></div>
             <div class="tab-pane fade" id="v-pills-uf" role="tabpanel" aria-labelledby="v-pills-uf-tab"> <?php  require_once  'app\projetos\estados.php'; ?>  </div>
+            <div class="tab-pane fade" id="v-pills-cidade" role="tabpanel" aria-labelledby="v-pills-cidade-tab"> <?php  require_once  'app\projetos\cidades.php'; ?>  </div>
         </div>
     </div>
   
