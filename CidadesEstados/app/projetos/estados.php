@@ -35,9 +35,9 @@ $res->execute();
                 foreach ($conn->query($sql) as $row) {
                     echo '
                     <tr>
-                        <td>'. $row['id'].'</td>
-                        <td>'.$row['nome'].'</td>
+                        <td>'. $row['id'].'</td>                       
                         <td>'.$row['sigla'].'</td>
+                        <td>'.$row['nome'].'</td>
                     ';
 
                     //busca do nome da Região deste estado
