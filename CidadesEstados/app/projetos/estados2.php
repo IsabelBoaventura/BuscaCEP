@@ -24,6 +24,7 @@
         require '../../banco/conexao.php';
     }
     $paginacao = '';
+    $paginacao2 = '';
 
     // Verifica se a variável tá declarada, senão deixa na primeira página como padrão.
     //if(isset($p)) { $p = $p; } else { $p = 1; }
@@ -124,6 +125,35 @@
                 </table>
         </div>';
 
+    $paginacao2 .='<nav aria-label="Page navigation example">
+        <ul class="pagination">';
+
+
+
+
+
+    $teste = '
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item disabled">
+                <span class="page-link">
+                    <a href="estados2.php?p=1" target="_self">Início  </a>
+                </span>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active">
+                <span class="page-link">
+                    2
+                    <span class="sr-only">(current)</span>
+                </span>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>';
+
 
 //Abre novamente o PHP.
     if($pags > 1){ //Verifica se tem mais de uma página.
@@ -131,16 +161,38 @@
         $max_links = 3;
         // Exibe o primeiro link "primeira página", que não entra na contagem acima(3).
         $paginacao .= '<a href="estados2.php?p=1" target="_self">primeira página </a> ';
+        // $paginacao2 .='<li class="page-item disabled">
+        //     <span class="page-link">
+        //         <a href="estados2.php?p=1" target="_self">Início  </a> 
+        //     </span>
+        // </li>';
+
+
+        $paginacao2 .='<li class="page-item">
+                    <span class="page-link"><a href="estados2.php?p=1" target="_self">Início</a></span>
+                </li>';
         // Cria um for() para exibir os 3 links antes da página atual.
         for($i = $p-$max_links; $i <= $p-1; $i++) {
             // Se o número da página for menor ou igual a zero, não faz nada.
             if($i >= 1){//Então chama o link se for 1 ou maior.
                 //Cria o link com o número do indice.
                 $paginacao .= '<a href="estados2.php?p='.$i.'" target="_self"> '.$i.'</a> ';
+                $paginacao2 .='<li class="page-item">
+                      
+                   
+                        <a class="page-link" href="estados2.php?p='.$i.'" target="_self" > '.$i.'</a>
+                       
+                    </li>
+                   ';
             }//Fecha o if.
         }//Fecha o for.
         // Exibe a página atual, sem link, apenas o número
-        $paginacao .= $p." ";
+        $paginacao .= $p."  ";
+        $paginacao2 .= '
+            <li class="page-item active">
+            <span class="page-link">'. $p.'  <span class="sr-only">(atual)</span> </span>
+            </li>
+        ';
         // Cria outro for(), desta vez para exibir 3 links após a página atual.
         for($i = $p+1; $i <= $p+$max_links; $i++) {
             // Verifica se a página atual é maior do que a última página. Se for, não faz nada.
@@ -149,7 +201,8 @@
             }
             // Se tiver tudo Ok gera os links.
             else {
-                $paginacao .= '<a href="estados2.php?p='.$i.'" target="_self">'.$i.'</a> ';
+                $paginacao .= '<a href="estados2.php?p='.$i.'" target="_self"> estou aqui   '.$i.'</a> ';
+                $paginacao2 .= '<li class="page-item"> <span class="page-link"><a href="estados2.php?p='.$i.'" target="_self"> '.$i.'</a> </span></li> ';
             }
         }
         // Exibe o link "última página"
@@ -159,7 +212,12 @@
         else{
             $i=$pags;
             }
-        $paginacao .= '<a href="estados2.php?p='.$i.'" target="_self">&uacute;ltima p&aacute;gina</a> ';   
+        $paginacao .= '<a href="estados2.php?p='.$i.'" target="_self">&uacute;ltima p&aacute;gina</a> ';
+        
+        $paginacao2 .=' <li class="page-item">
+        <a  class="page-link" href="estados2.php?p='.$i.'" target="_self">Próximo</a>
+        </li></ul>
+        </nav>';
     }
   
 ?>
@@ -191,9 +249,25 @@
         <tbody> 
             <?php   echo $tabela_completa;  ?>   
         </tbody>
-       
+        <!-- <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end">
+                <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+                </li>   
+            </ul>
+        </nav> -->
     </table>
-    <?php echo $paginacao ; ?>
+
+  
+    
+
+    <?php echo $paginacao2 ; ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
     </body>
