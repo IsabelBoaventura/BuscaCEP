@@ -126,7 +126,7 @@
         </div>';
 
     $paginacao2 .='<nav aria-label="Page navigation example">
-        <ul class="pagination">';
+        <ul class="pagination justify-content-end">';
 
 
 
@@ -190,7 +190,7 @@
         $paginacao .= $p."  ";
         $paginacao2 .= '
             <li class="page-item active">
-            <span class="page-link">'. $p.'  <span class="sr-only">(atual)</span> </span>
+                <span class="page-link">'. $p.'  <span class="sr-only">(atual)</span> </span>
             </li>
         ';
         // Cria outro for(), desta vez para exibir 3 links após a página atual.

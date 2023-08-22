@@ -25,7 +25,17 @@
         
         
         </div>
-            <div class="tab-pane fade" id="v-pills-cidade" role="tabpanel" aria-labelledby="v-pills-cidade-tab"> <?php  require_once  'app\projetos\cidades.php'; ?>  </div>
+            <div class="tab-pane fade" id="v-pills-cidade" role="tabpanel" aria-labelledby="v-pills-cidade-tab"> 
+                <?php  //require_once  'app\projetos\cidades.php'; ?> 
+                <iframe
+                width="100%"
+                height="550px"
+                frameborder="0"
+                scrolling="auto"
+                marginheight="0"
+                marginwidth="0"
+                src="app/projetos/cidades2.php?p=1"></iframe><br/> 
+            </div>
         </div>
     </div> 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
